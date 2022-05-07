@@ -10,7 +10,7 @@ Vue.component("table-component", {
       </thead>
 
       <tbody>
-        <tr :class="colorFilas(i, product.stock)" v-for="(product, i) in products" :key="product.id">
+        <tr :class="[ parImpar(i), stockAlert(product.stock) ]" v-for="(product, i) in products" :key="product.id">
           <td>{{ product.name}}</td>
           <td>{{ product.category }}</td>
           <td> $ {{ product.price }}</td>
@@ -34,6 +34,15 @@ Vue.component("table-component", {
   },
 
   methods: {
+
+    parImpar(index) {
+      return index % 2 == 0 ? 'fila-par' : 'fila-impar';
+    },
+
+    stockAlert(stock) {
+      return stock < 2 && 'stock-alert';
+    },
+
     colorFilas(index, stock) {
     
       const stockAlert = stock < 2 && { 'stock-alert': true };
