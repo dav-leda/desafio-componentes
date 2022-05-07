@@ -10,7 +10,7 @@ Vue.component("table-component", {
       </thead>
 
       <tbody>
-        <tr :class="colorFilas(i)" v-for="(product, i) in products" :key="product.id">
+        <tr :class="colorFilas(i, product.stock)" v-for="(product, i) in products" :key="product.id">
           <td>{{ product.name}}</td>
           <td>{{ product.category }}</td>
           <td> $ {{ product.price }}</td>
@@ -32,10 +32,22 @@ Vue.component("table-component", {
       type: Number
     },
   },
+
   methods: {
-    colorFilas(index) {
-      return index % 2 == 0 ? 'fila-par' : 'fila-impar'
+    colorFilas(index, stock) {
+    
+      const stockAlert = stock < 2 && { 'stock-alert': true };
+
+      const parImpar = index % 2 == 0 ? { 'fila-par': true } : { 'fila-impar': true };
+
+      const clasesFilas = {
+        ...stockAlert,
+        ...parImpar
+      }
+      
+      return clasesFilas
     },
+
     theadClass(index) {
       return index % 2 == 0 ? 'thead-dark' : 'thead-light'
     }
@@ -62,21 +74,21 @@ const app = new Vue({
             name: "Cheese Cake",
             category: "Tortas",
             price: 280,
-            stock: 3          
+            stock: 1         
           },
           {
             id: 3,
             name: "Selva Negra",
             category: "Tortas",
             price: 900,
-            stock: 2          
+            stock: 1       
           },
           {
             id: 4,
             name: "Medialunas (por docena)",
             category: "Facturas",
             price: 240,
-            stock: 8          
+            stock: 4         
           }
         ]
       },
@@ -94,7 +106,7 @@ const app = new Vue({
             name: "Muffin de manzana",
             category: "Muffins",
             price: 350,
-            stock: 12          
+            stock: 1         
           },
           {
             id: 7,
@@ -126,7 +138,7 @@ const app = new Vue({
             name: "Crumble de manzana",
             category: "Postres",
             price: 420,
-            stock: 12          
+            stock: 1       
           },
           {
             id: 15,
