@@ -5,7 +5,7 @@ Vue.component("table-component", {
     <table>
       <thead :class="theadClass(index)">
         <tr>
-          <th v-for="(title, i) in titles" :keys="i">{{ title }}</th>
+          <th v-for="(title, i) in titles" :key="i">{{ title }}</th>
         </tr>
       </thead>
 
