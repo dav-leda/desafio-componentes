@@ -40,7 +40,7 @@ Vue.component("table-component", {
     },
 
     stockAlert(stock) {
-      return stock < 2 && 'stock-alert';
+      return stock < 1 && 'stock-alert';
     },
 
     colorFilas(index, stock) {
@@ -83,14 +83,14 @@ const app = new Vue({
             name: "Cheese Cake",
             category: "Tortas",
             price: 280,
-            stock: 1         
+            stock: 0         
           },
           {
             id: 3,
             name: "Selva Negra",
             category: "Tortas",
             price: 900,
-            stock: 1       
+            stock: 0       
           },
           {
             id: 4,
@@ -115,7 +115,7 @@ const app = new Vue({
             name: "Muffin de manzana",
             category: "Muffins",
             price: 350,
-            stock: 1         
+            stock: 0       
           },
           {
             id: 7,
@@ -154,7 +154,7 @@ const app = new Vue({
             name: "Cupcake Dulce de Leche",
             category: "Cupcakes",
             price: 260,
-            stock: 8          
+            stock: 0          
           },
           {
             id: 16,
