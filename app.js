@@ -2,7 +2,7 @@
 
 Vue.component("table-component", {
   template: /* html */`
-    <table>
+    <table class="table mt-5">
       <thead :class="theadClass(index)">
         <tr>
           <th v-for="(title, i) in titles" :key="i">{{ title }}</th>
@@ -10,7 +10,11 @@ Vue.component("table-component", {
       </thead>
 
       <tbody>
-        <tr :class="[ parImpar(i), stockAlert(product.stock) ]" v-for="(product, i) in products" :key="product.id">
+        <tr 
+          v-for="(product, index) in products" 
+          :key="product.id"
+          :class="[ parImpar(index), stockAlert(product.stock) ]" 
+        >
           <td>{{ product.name}}</td>
           <td>{{ product.category }}</td>
           <td> $ {{ product.price }}</td>
@@ -36,25 +40,11 @@ Vue.component("table-component", {
   methods: {
 
     parImpar(index) {
-      return index % 2 == 0 ? 'fila-par' : 'fila-impar';
+      return index % 2 == 0 ? 'fila-impar' : 'fila-par';
     },
 
     stockAlert(stock) {
       return stock < 1 && 'stock-alert';
-    },
-
-    colorFilas(index, stock) {
-    
-      const stockAlert = stock < 2 && { 'stock-alert': true };
-
-      const parImpar = index % 2 == 0 ? { 'fila-par': true } : { 'fila-impar': true };
-
-      const clasesFilas = {
-        ...stockAlert,
-        ...parImpar
-      }
-      
-      return clasesFilas
     },
 
     theadClass(index) {
@@ -83,14 +73,14 @@ const app = new Vue({
             name: "Cheese Cake",
             category: "Tortas",
             price: 280,
-            stock: 0         
+            stock: 1         
           },
           {
             id: 3,
             name: "Selva Negra",
             category: "Tortas",
             price: 900,
-            stock: 0       
+            stock: 2      
           },
           {
             id: 4,

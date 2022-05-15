@@ -1,74 +1,26 @@
 
 body {
   background-color: snow;
-  font-family: 'Helvetica', sans-serif;
 }
 
-.container {
-  margin: 0 auto;
-  border-radius: 10px;
-  background: rgb(150, 129, 129);
-  height: fit-content;
-  width: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.thead-light {
-  color: #03001e;
-  background-color: #efefef;
-}
-
-.thead-dark {
-  color: #efefef;
-  background-color: #03001e;
-}
 
 .fila-par {
-  background-color: #454545;
-  color: white;
+  background-color: #dedede;
 }
 
 .fila-impar {
-  background-color: #2b2b2b;
-  color: white;
+  background-color: #d1d1d1;
 }
 
 .stock-alert {
-  color: rgb(255, 84, 84);
+  color: rgb(199, 41, 41);
+  background-color: snow;
 }
 
-h1 {
-  color: snow;
-  text-decoration: underline;
-}
 
-.mt-4 {
-  margin-top: 4rem;
-}
 
-table {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  width: 600px;
-  height: 250px;
-}
 
-th {
-  text-align: left;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 130px;
-}
 
-td {
-  text-align: left;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  max-width: 130px;
-}
+
+
 
